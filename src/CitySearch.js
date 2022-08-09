@@ -29,7 +29,7 @@ class CitySearch extends Component {
           <div className="CitySearch">
             <input
               type="text"
-              className="city"
+              className="city-input"
               value={this.state.query}
               onChange={this.handleInputChanged}  //will detect whether any textual input have been made on input
             />
