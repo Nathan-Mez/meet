@@ -3,16 +3,16 @@ import React, { Component } from "react";
 
 class Event extends Component {
 
-  state = { show: false };  
+  state = { show: false };                  //set initial show state to hide
 
   toggleVisibility = () => {
-    this.setState((currentState) => ({show: !currentState.show}));
+    this.setState((currentState) => ({show: !currentState.show}));     //negate any value of this.state.show when toggleVisibility is called
   };
 
  
   render() {
     const { event } = this.props;
-    var buttonText = this.state.show ? "Hide Details" : "Show Details";
+    var buttonText = this.state.show ? "Hide Details" : "Show Details";  //if-else clauses to the value of innerText of buttons show-hide-Details-button
 
     return <div className="event">
               <h1 className="event-title">{event.summary}</h1>
