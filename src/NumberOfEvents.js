@@ -22,6 +22,7 @@ class NumberOfEvents extends Component {
       render() {
         return (
           <div className="event-count-search">
+            <label>Event Count </label>
             <input
               type="number"
               className="event-count-input"
