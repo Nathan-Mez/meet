@@ -16,12 +16,12 @@ class Event extends Component {
 
     return <div className="event">
               <h1 className="event-title">{event.summary}</h1>
-              <p className="event-overview">{event.start.dateTime} {event.start.timeZone} {event.location} +"event is: "+ {event.status} </p>
+              <p className="event-overview">{event.start.dateTime} {event.start.timeZone} {event.location} | The event is {event.status} </p>
 
               {this.state.show && 
                  <div className='show-details'>
                    <h2 className="event-about-event">About event:</h2>
-                   <a className="event-htmlLink" href={event.htmlLink} target="_blank">See details on Google Calendar</a>
+                   <a className="event-htmlLink" href={event.htmlLink} target="_blank" rel="noreferrer" >See details on Google Calendar</a>
                    <p className="event-description">{event.description}</p> 
                  </div>
                }
