@@ -25,7 +25,7 @@ class CitySearch extends Component {
         showSuggestions: false
       });
     
-      this.props.updateEvents(suggestion);
+      this.props.updateEvents(suggestion, undefined);
     }
 
     render() {
@@ -35,7 +35,7 @@ class CitySearch extends Component {
               type="text"
               className="city-input"
               value={this.state.query}
-              placeholder="Search for city"
+              placeholder="Search for Locations"
               onChange={this.handleInputChanged}  //will detect whether any textual input have been made on input
               onFocus={() => { this.setState({ showSuggestions: true }) }}
             />
@@ -46,8 +46,8 @@ class CitySearch extends Component {
                     onClick={() => this.handleItemClicked(suggestion)}
                     >{suggestion}</li>
                     ))}
-                  <li onClick={() => this.handleItemClicked("all")}>
-                    <b>See all cities</b>
+                  <li onClick={() => this.handleItemClicked("All Locations")}>
+                    <b>See all Locations</b>
                   </li>
            </ul>
           </div>
