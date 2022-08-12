@@ -120,17 +120,18 @@ input[type="number"] {
   right: 20px;
   bottom: 20px;
   padding: 5px 8px;
-  border: 1px solid #276C91;
+  border: 1px solid #000;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
   transition-duration: 0.25s;
   background-color: rgba(225, 225, 225, 0.8);
-  color: #276C91;
+  color: #000;
 }
 
 .show-hide-Details-button:hover {
   background-color: #276C91;
+  border: 1px solid #276C91;
   color: #FFF;
 }  
 
