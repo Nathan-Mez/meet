@@ -90,11 +90,16 @@ input[type="number"] {
 .event {
   padding: 10px 10px 35px;
   background-color: rgba(225, 225, 225, 0.80);
-  margin: 20px;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 10px;
   position: relative;
+  height: 235px;
+  overflow: auto;
+}
+
+.event h1 {
+  font-family: "Franklin Gothic Medium";
 }
 
 .EventList {
@@ -102,10 +107,12 @@ input[type="number"] {
   background-image: url("../public/event-list-background.jfif");
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 30px;
   height: 550px;
   overflow: auto;
   display: grid;
   grid-template-columns: auto auto;
+  grid-gap: 25px !important;
 }
 
 .show-details{
@@ -117,15 +124,15 @@ input[type="number"] {
 
 .show-hide-Details-button {
   position: absolute;
-  right: 20px;
-  bottom: 20px;
+  margin-top: 13px;
+  left: 38%;
   padding: 5px 8px;
   border: 1px solid #000;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
   transition-duration: 0.25s;
-  background-color: rgba(225, 225, 225, 0.8);
+  background-color: rgba(225, 225, 225, 0.45);
   color: #000;
 }
 
@@ -247,5 +254,20 @@ input[type="number"] {
     max-width: 50%;
     min-width: auto;
     margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .EventList {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+}
+
+@media only screen and (min-width: 1300px) {
+  .EventList {
+    display: grid;
+    grid-template-columns: auto auto auto;
   }
 }
