@@ -67,7 +67,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <p className="Alert">
           <OfflineAlert text={this.state.offlineText} />
+        </p>  
           <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />        
           <NumberOfEvents eventCounts={this.state.eventNumbers} updateEvents = { this.updateEvents } />        
         <EventList events={this.state.events} />           
