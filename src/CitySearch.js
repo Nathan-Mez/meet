@@ -22,6 +22,7 @@ class CitySearch extends Component {
         this.setState({
           query: value,
           infoText: 'We can not find the city "' + value + '" on the Events list',
+          suggestions : []
         });
       } else {
         return this.setState({
@@ -44,10 +45,10 @@ class CitySearch extends Component {
 
     render() {
         return (
-          <div className="CitySearch">
-            <p className="InfoAlert">
+          <div className="CitySearch">  
+          <p className="Alert">
               <InfoAlert text={this.state.infoText} />
-            </p>  
+            </p>
             <input
               type="text"
               className="city-input"
