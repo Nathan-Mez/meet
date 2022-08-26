@@ -4,9 +4,7 @@ import axios from 'axios';
 import './nprogress.css';
 import NProgress from 'nprogress';
 
-/**
- * @param {*} events:
- */
+
  export const extractLocations = (events) => {
     var extractLocations = events.map((event) => event.location);
     var locations = [...new Set(extractLocations)];
@@ -89,7 +87,7 @@ import NProgress from 'nprogress';
 
   }
 
-  const getToken = async (code) => {
+  export const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
     const { access_token } = await fetch(
       'https://j10kme9rpj.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
@@ -103,3 +101,6 @@ import NProgress from 'nprogress';
   
     return access_token;
   };
+
+
+
