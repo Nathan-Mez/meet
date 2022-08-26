@@ -33,6 +33,9 @@ class NumberOfEvents extends Component {
       render() {
         return (
           <div className="event-count-search">
+            <p className="Alert">
+              <ErrorAlert text={this.state.errorText} />
+            </p> 
             <label>Event Count </label>
             <input
               type="number"
@@ -40,9 +43,7 @@ class NumberOfEvents extends Component {
               value={this.state.eventCounts}
               onChange={this.handleInputChanged}                  //will detect whether any textual input have been made on input
             />
-            <p className="Alert">
-              <ErrorAlert text={this.state.errorText} />
-            </p>  
+             
           </div>
         );
     }   
