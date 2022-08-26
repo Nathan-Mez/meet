@@ -93,8 +93,8 @@ class App extends Component {
   render() {
     const { events, locations, numberOfEvents, offlineText, showWelcomeScreen } = this.state;
 
-    /*if (showWelcomeScreen === undefined) 
-    return <div className="App" />*/
+    if (showWelcomeScreen === undefined) 
+    return <div className="App" />
 
     return (
       <div className="App">
@@ -105,7 +105,7 @@ class App extends Component {
         <CitySearch updateEvents={this.updateEvents} locations={locations} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={numberOfEvents} />       
          <h4>Events in each city</h4>
-         <p>{events}</p>
+         <p>{this.state.events}</p>
          <div className="data-vis-wrapper">
             <EventGenre events={events} />
             <ResponsiveContainer height={400} >
