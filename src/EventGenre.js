@@ -14,7 +14,7 @@ const EventGenre = ({ events }) => {
   const colors = ["#21897E", "#AA6DA3", "#FFE74C", "#4C6A94", "#EFC88B"];
 
   const getData = () => {
-    const genres = ["JavaScript", "React", "Node.js", "jQuery", "AngularJS"];
+    const genres = ["JavaScript", "React", "Node", "jQuery", "AngularJS"];
     const data = genres.map((genre) => {
       const value = events.filter((event) => event.summary.split(" ").includes(genre)).length;
       return { name: genre, value };
