@@ -2,7 +2,7 @@
 .App {
   text-align: center;
   padding: 2% 5%;
-  background-image: url("../public/background-1.jpg");
+  background-image: url("../public/background-1.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -28,8 +28,17 @@ p {
 }
 
 .Navigationbar {
-  background-color: #494949;
+  background: linear-gradient(to bottom, rgb(42, 115, 141, 1.0), 85%,  rgba(42, 115, 141, 0.0) ) ;
+  display: flex;
+  justify-content: left;
+  margin-bottom: 10px;
+  padding: 50px;
 }
+
+.inputBar {
+  width: 70%;
+}
+
 
 input[type="text"],
 input[type="number"] {
@@ -45,12 +54,13 @@ input[type="number"] {
 
 .city-input {
   width: 350px;
-  border-radius: 35px !important;
+  border-radius: 8px !important;
 }
 
 .event-count-input {
-  width: 50px;
+  width: 100px;
   margin: 20px auto;
+  border-radius: 8px !important;
   text-align: center;
 }
 
@@ -92,7 +102,7 @@ input[type="number"] {
 
 .event {
   padding: 10px 10px 35px;
-  background-color: rgba(225, 225, 225, 0.80);
+  background-color: #fff;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -107,11 +117,9 @@ input[type="number"] {
 
 .EventList {
   border-radius: 15px;
-  background-color:rgba(225, 225, 225, 0.85);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.75);
   padding: 30px;
-  height: 550px;
+  height: 780px;
   overflow: auto;
   display: grid;
   grid-template-columns: auto auto;
@@ -185,7 +193,7 @@ input[type="number"] {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: #fff;
   border-radius: 15px;
 }
 .data-vis-wrapper .recharts-responsive-container {
@@ -195,6 +203,11 @@ input[type="number"] {
 .recharts-surface {
   overflow: visible;
 }
+
+.pieChart {
+  background: #4285f4;
+}
+
 
 .login-button {
   color: #494949;
@@ -266,6 +279,16 @@ input[type="number"] {
   .EventList {
     display: grid;
     grid-template-columns: auto;
+  }
+
+  .Navigationbar {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+
+  .inputBar {
+    width: 100%;
   }
 
 }
