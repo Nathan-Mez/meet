@@ -11,6 +11,7 @@ import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import './nprogress.css';
 import { OfflineAlert } from './Alert';
 import {ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
+import MeetIcon from './favicon.png';
 
 
 class App extends Component {
@@ -98,25 +99,29 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Meet App</h1>
-        <div className="Alert">
-          <OfflineAlert text={offlineText} />
-        </div>
-        <CitySearch updateEvents={this.updateEvents} locations={locations} />
-        <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={numberOfEvents} />       
-         <h4>Events in each city</h4>
+        <div className="Navigationbar">
+           <img src={MeetIcon} alt="Meet App Icon" width="170px" className="meetIcon" ></img>
+           <div className="Alert">
+              <OfflineAlert text={offlineText} />
+           </div>
+           <div className="inputBar">
+              <CitySearch updateEvents={this.updateEvents} locations={locations} />
+              <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={numberOfEvents} />  
+           </div>
+         </div>       
          <div className="data-vis-wrapper">
             <EventGenre events={events} />
             <ResponsiveContainer height={400} >
                <ScatterChart
+                className='scatterChart'
                  margin={{
-                   top: 20, right: 20, bottom: 20, left: 20,
+                   top: 30, right: 50, bottom: 30, left: 10,
                  }}>
                  <CartesianGrid />
-                 <XAxis type="category" dataKey="city" name="city" />
+                 <XAxis type="category" dataKey="city" name="city"/>
                  <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
                  <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                 <Scatter data={this.getData()} fill="#172A3A" />
+                 <Scatter data={this.getData()} fill="#6B89B3" />
                </ScatterChart>
            </ResponsiveContainer>
         </div>   
