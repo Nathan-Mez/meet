@@ -2,6 +2,9 @@
 .App {
   text-align: center;
   padding: 2% 5%;
+  background-image: url("../public/background-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App * {
@@ -103,8 +106,8 @@ input[type="number"] {
 }
 
 .EventList {
-  border-radius: 7px;
-  background-image: url("../public/event-list-background.jfif");
+  border-radius: 15px;
+  background-color:rgba(225, 225, 225, 0.85);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 30px;
@@ -182,6 +185,8 @@ input[type="number"] {
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
 }
 .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
