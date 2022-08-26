@@ -5,7 +5,8 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { getEvents, extractLocations } from './api';
+import WelcomeScreen from './WelcomeScreen';
+import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import './nprogress.css';
 import { OfflineAlert } from './Alert';
 import {ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
@@ -17,25 +18,37 @@ class App extends Component {
     events: [],
     locations: [],
     eventNumbers: 32,
-    locationSelected: 'All Locations'
+    locationSelected: 'All Locations',
+    showWelcomeScreen: undefined
   }
 
 
-  componentDidMount() {
-    getEvents().then((events) => {
-      this.setState({ events, locations: extractLocations(events) });
+  async componentDidMount() {
+    this.mounted = true;
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
+   });
+  }
+  if (navigator.onLine) {
+    this.setState({
+      offlineText: ''
     });
-
-    if (navigator.onLine) {
-      this.setState({
-        offlineText: ''
-      });
-    } else {
-      this.setState({
-        offlineText: 'YOU ARE CURRENTLY OFFLINE, CONNECT TO THE INTERNET TO GET UPDATED RESAULT.'
-      })
-    }
+  } else {
+    this.setState({
+      offlineText: 'YOU ARE CURRENTLY OFFLINE, CONNECT TO THE INTERNET TO GET UPDATED RESAULT.'
+    })
   }
+}
+
+
   componentWillUnmount(){
     this.mounted = false;
   }
@@ -74,7 +87,11 @@ class App extends Component {
 
 
   render() {
-    const { locations, numberOfEvents, offlineText } = this.state;
+    const { locations, numberOfEvents, offlineText, showWelcomeScreen } = this.state;
+
+    if (showWelcomeScreen === undefined) 
+    return <div className="App" />
+
     return (
       <div className="App">
         <h1>Meet App</h1>
@@ -82,10 +99,7 @@ class App extends Component {
           <OfflineAlert text={offlineText} />
         </p>
         <CitySearch updateEvents={this.updateEvents} locations={locations} />
-        <NumberOfEvents
-          updateEvents={this.updateEvents}
-          numberOfEvents={numberOfEvents}
-        />       
+        <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={numberOfEvents} />       
          <h4>Events in each city</h4>
          <ResponsiveContainer height={400} >
             <ScatterChart
@@ -100,6 +114,7 @@ class App extends Component {
             </ScatterChart>
         </ResponsiveContainer>
         <EventList events={this.state.events} />
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
     );
   }
