@@ -13,7 +13,7 @@ import NProgress from 'nprogress';
     return locations;
   };
 
-  const checkToken = async (accessToken) => {
+  export const checkToken = async (accessToken) => {
     const result = await fetch(
       `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
     )
@@ -88,7 +88,6 @@ import NProgress from 'nprogress';
   return accessToken;
 
   }
-
 
   const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
