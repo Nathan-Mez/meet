@@ -35,7 +35,7 @@ class App extends Component {
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({
-            events: events.slice(0, this.state.numberOfEvents),
+            events: events.slice(0, this.state.eventNumbers),
             locations: extractLocations(events)
           });
         }
@@ -99,13 +99,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Meet App</h1>
-        <p className="Alert">
+        <div className="Alert">
           <OfflineAlert text={offlineText} />
-        </p>
+        </div>
         <CitySearch updateEvents={this.updateEvents} locations={locations} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={numberOfEvents} />       
          <h4>Events in each city</h4>
-         <p>{this.state.events}</p>
          <div className="data-vis-wrapper">
             <EventGenre events={events} />
             <ResponsiveContainer height={400} >
