@@ -31,7 +31,7 @@ p {
   background-color: rgba(42, 115, 141, 0.85);
   display: flex;
   justify-content: left;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 50px;
   border-radius: 15px;
 }
