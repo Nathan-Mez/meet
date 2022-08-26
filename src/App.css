@@ -28,11 +28,12 @@ p {
 }
 
 .Navigationbar {
-  background: linear-gradient(to bottom, rgb(42, 115, 141, 1.0), 85%,  rgba(42, 115, 141, 0.0) ) ;
+  background-color: rgba(42, 115, 141, 0.85);
   display: flex;
   justify-content: left;
   margin-bottom: 10px;
   padding: 50px;
+  border-radius: 15px;
 }
 
 .inputBar {
