@@ -11,10 +11,10 @@ const EventGenre = ({ events }) => {
     [events]
   );
 
-  const colors = ["#69523A", "#63673C", "#817936", "#172A3A", "#3C4D53"];
+  const colors = ["#21897E", "#AA6DA3", "#FFE74C", "#4C6A94", "#EFC88B"];
 
   const getData = () => {
-    const genres = ["JavaScript", "React", "Node", "jQuery", "AngularJS"];
+    const genres = ["JavaScript", "React", "Node.js", "jQuery", "AngularJS"];
     const data = genres.map((genre) => {
       const value = events.filter((event) => event.summary.split(" ").includes(genre)).length;
       return { name: genre, value };
@@ -26,10 +26,9 @@ const EventGenre = ({ events }) => {
 
   return (
     <ResponsiveContainer height={400}>
-      <PieChart width={100} height={100}>
+      <PieChart>
         <Pie
           data={data}
-          
           labelLine={false}
           outerRadius={80}
           fill='#fff'
