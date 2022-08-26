@@ -27,7 +27,7 @@ class App extends Component {
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const isTokenValid = true
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('code');
     this.setState({ showWelcomeScreen: !(code || isTokenValid) });
@@ -35,7 +35,7 @@ class App extends Component {
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({
-            events: events.slice(0, this.state.eventNumbers),
+            events: events.slice(0, this.state.NumberOfEvents),
             locations: extractLocations(events)
           });
         }
@@ -120,7 +120,7 @@ class App extends Component {
                </ScatterChart>
            </ResponsiveContainer>
         </div>   
-        <EventList events={this.state.events} />
+        <EventList events={events} />
         <WelcomeScreen showWelcomeScreen={showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
     );
