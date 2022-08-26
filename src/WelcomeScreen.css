@@ -1,9 +1,10 @@
 .WelcomeScreen {
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 100%;
-    top: 0;
-    background: white;
+    marign: 35%;
+    padding: 5%;
+    background-color: aliceblue;
 }
 .login-button {
     color: #494949;
