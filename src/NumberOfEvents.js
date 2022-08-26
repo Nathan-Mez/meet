@@ -36,7 +36,7 @@ class NumberOfEvents extends Component {
             <p className="Alert">
               <ErrorAlert text={this.state.errorText} />
             </p> 
-            <label>Event Count </label>
+            <label id="eventCount">Event Count </label>
             <input
               type="number"
               className="event-count-input"
